@@ -1,6 +1,7 @@
 var express        =         require("express");
 var bodyParser     =         require("body-parser");
 var app            =         express();
+var PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.get('/', function (req,res){
@@ -20,6 +21,6 @@ app.post('/api/:id',function(req,res){
   	//res.send('Got a POST request');
 });
 
-app.listen(3000,function(){
+app.listen(PORT,function(){
   console.log("Started on PORT 3000");
 })
