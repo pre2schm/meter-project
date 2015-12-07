@@ -14,13 +14,16 @@ app.post('/login',function(req,res){
   res.end("yes");
 });
 
-app.post('/api/:id',function(req,res){
+app.post('/api',function(req,res){
 	//res.send(req.params.id);
-	console.log(req.params.id);
-	res.status(200).send();
+	var body = req.body
   	//res.send('Got a POST request');
 });
 
 app.listen(PORT,function(){
   console.log("Started on PORT 3000");
-})
+});
+
+// app.get('/output', function(req,res){
+// 	res.send(out);
+// });
