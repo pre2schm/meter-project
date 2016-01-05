@@ -7,7 +7,7 @@ var PORT = process.env.PORT || 3000;
 var todos =[]
 var todoNextId = 1;
 
-app.use(bodyParser.text();
+app.use(bodyParser.text());
 
 app.get('/', function (req,res){
   res.send('Meter API' + todos);
