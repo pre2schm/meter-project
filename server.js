@@ -7,14 +7,19 @@ var PORT = process.env.PORT || 3000;
 var todos =[]
 var todoNextId = 1;
 
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.raw());
+app.use(bodyParser.json());
 app.use(bodyParser.text());
 
-app.get('/', function (req,res){
-  res.send('Meter API' + todos);
-});
 
-app.get('/api', function (req,res) {
-  res.text(todos);
+app.post('/api', function (req,res) {
+  
+  var body = req.body;
+  console.log(body);
+  return res.sendStatus(200).send();
 });
 
 // app.get('/todos/:id', function (req,res) {
@@ -34,21 +39,21 @@ app.get('/api', function (req,res) {
   //res.send('Asking for todo with id of ' + req.params.id);
 //});
 
-app.post('/api', function (req,res){
+// app.post('/api', function (req,res){
   
-  var body = req.body;
-  //var object = body;
+//   var body = req.body;
+//   //var object = body;
 
-  todos.push(body);
-  console.log(body);
-  //console.log(todos);
+//   todos.push(body);
+//   console.log(body);
+//   //console.log(todos);
   
-  //console.log('description: ' + body.description);
-  //console.log(todos.length);
-  //res.status(200).send();
-  //res.json(body);
-  res.text(body);
-});
+//   //console.log('description: ' + body.description);
+//   //console.log(todos.length);
+//   //res.status(200).send();
+//   //res.json(body);
+//   res.text(body);
+// });
 
 app.listen(PORT, function(){
   console.log('Express listening on port ' + PORT + '!');
