@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
+var str2json = require('string-to-json');
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -16,7 +17,7 @@ app.use(bodyParser.text());
 
 app.post('/api', function (req,res) {
   
-  var body = req.body;
+  var body = str2json.convert(req.body);
   console.log(body);
   return res.sendStatus(200).send();
 });
